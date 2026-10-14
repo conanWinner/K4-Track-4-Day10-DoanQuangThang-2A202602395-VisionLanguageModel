@@ -1,0 +1,15 @@
+{
+  "id": "thngonquang/track4-day10-qwen3-vl-road-damage",
+  "title": "Track4 Day10 Qwen3 VL Road Damage",
+  "code_file": "lab_day10.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "lorenzoarcioni/road-damage-dataset-potholes-cracks-and-manholes"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}
