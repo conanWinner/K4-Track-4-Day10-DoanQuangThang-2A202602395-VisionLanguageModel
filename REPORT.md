@@ -25,11 +25,14 @@ F1_E1 − F1_E0=0.2310. Đạt cả hai điều kiện rubric: parse ≥0,95 và
 ### Câu 1 — Kiến trúc và khối được cập nhật
 Đếm trọng số chưa nén từ shape của Params4bit: {"language_model": 4022468096, "vision_backbone": 306242560, "projector": 109105152, "other": 0, "total": 4437815808}.
 Language model gồm embedding dùng chung với lm_head; vision_backbone không gồm projector.
+ViT biến patch ảnh thành đặc trưng; projector ghép và ánh xạ đặc trưng sang không gian
+đầu vào của LLM; LLM kết hợp token ảnh/prompt để sinh JSON định vị.
 E1 chỉ cập nhật LoRA trên 252 module LLM; E2 thêm toàn bộ merger/deepstack merger;
 E3 thêm 96 module ViT, tổng 348. Danh sách exact target/param ở report/training/eN/run.json.
 
 ### Câu 2 — E0 và lỗi thường gặp
-parse_valid_rate=0.8617; hai nhóm lỗi có số ảnh lớn nhất: [('images_with_fn', 291), ('images_with_fp', 222)].
+parse_valid_rate=0.8617 (43/311 ảnh có JSON không hợp lệ). Hai lỗi phổ biến nhất là
+bỏ sót box thật (FN, 291 ảnh) và dự đoán box không khớp GT cùng lớp (FP, 222 ảnh).
 Các nhóm có thể trùng nhau trong cùng ảnh. Đây là TP/FP/FN từ matching cùng lớp IoU≥0,5,
 không suy đoán nguyên nhân chỉ từ JSON. Ví dụ output thô:
 ```text
@@ -40,7 +43,8 @@ không suy đoán nguyên nhân chỉ từ JSON. Ví dụ output thô:
 E1 đúng norm1000 F1=0.2989; cùng raw chấm nhầm pixel F1=0.0000.
 Chẩn đoán thực hiện sau khi khoá kết quả chính, ở report/diagnostics/e1-wrong-scale.json.
 Ảnh 640×360: x_pixel=x_norm×640/1000, y_pixel=y_norm×360/1000.
-Sai quy ước làm box lệch vị trí/kích thước nên IoU giảm dù JSON có thể hợp lệ.
+Thang tương đối giúp dùng cùng quy ước ở các độ phân giải, sau đó đổi sang pixel theo
+chiều rộng/cao thật. Sai quy ước làm box lệch vị trí/kích thước nên IoU giảm dù JSON có thể hợp lệ.
 
 ### Câu 4 — Mask loss
 Kiểm tra prompt là prefix full chat; token prompt/ảnh và padding có label −100.
@@ -55,6 +59,10 @@ Transformers 5.19 cần skip prefix đầy đủ `model.visual`; dùng `visual` 
 không loại trừ các linear ViT trong lần preflight, nên mã sinh viên sửa theo tên cây module thật.
 Projector train ở fp32 để giữ cập nhật/gradient ổn định với GradScaler; forward dùng autocast fp16.
 Trọng số NF4 đóng băng không thể được cập nhật đầy đủ như weight fp32; LoRA học phần bù riêng.
+Cần phân biệt ViT với projector: ViT 4-bit đóng băng không tự ngăn học một projector
+dense riêng phía sau. Nếu quá trình quantization lượng tử hoá luôn merger thì không thể
+full-finetune merger 4-bit như tham số dense; vì vậy audit loại trừ toàn bộ model.visual.
+Điều kiện đủ là projector dense/trainable và có gradient, không phải mọi weight ViT đều trainable.
 Adapter và projector.pt lưu riêng; reload vào base mới và kiểm tra hash tensor projector.
 Đây là lựa chọn precision của thí nghiệm, không khẳng định mọi bài toán bắt buộc dùng fp32.
 
@@ -69,7 +77,14 @@ Bảng trên là so sánh cùng base/seed/budget, khởi tạo độc lập, kh�
 Setup chọn theo val: E3; validation F1: {'E1': 0.21447721179624665, 'E2': 0.2998204667863555, 'E3': 0.351131221719457}.
 Chênh lệch test E2−E1=0.0536,
 E3−E2=0.1071.
-Cần cân nhắc mức tăng F1 so với VRAM/thời gian trong bảng; nhiều tham số train hơn không bảo đảm F1 cao hơn.
+Mở projector tăng F1 0,0536, tốn thêm 1,6584 GB và 0,8869 phút so với E1.
+CI95 E1/E2 còn chồng lấn nên chưa kết luận mức tăng ổn định qua các lần train.
+E3 tăng thêm F1 0,1071 so với E2, tốn thêm 0,1362 GB và 9,2845 phút;
+CI95 E2/E3 không chồng lấn trong bootstrap theo ảnh, nhưng chưa phải kiểm định paired/session.
+E3 dùng nhiều VRAM nhất (6,8974 GB): thêm gradient/LoRA ViT bên cạnh projector fp32.
+Với T4 16 GB của lượt chạy này, E3 đáng chọn nếu ưu tiên chất lượng; E1 phù hợp khi
+cần giảm thời gian và bộ nhớ, vẫn cải thiện rõ 0,2310 F1 so với E0. Chưa đo độ trễ
+triển khai hay chi phí tiền nên đây là đánh đổi theo tài nguyên train, không phải chi phí vận hành.
 
 ### Câu 8 — 311 ảnh và khoảng tin cậy
 Độ rộng CI95 bootstrap của E0–E3: {'e0': '0.0439', 'e1': '0.0762', 'e2': '0.0810', 'e3': '0.0865'}.

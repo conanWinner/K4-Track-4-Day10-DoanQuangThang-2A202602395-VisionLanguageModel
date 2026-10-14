@@ -1,0 +1,9 @@
+{
+  "expected_sha": "cfc5658ef8c4ffb48347c906558edec6bb0ebc37",
+  "repo": "https://github.com/conanWinner/K4-Track-4-Day10-DoanQuangThang-2A202602395-VisionLanguageModel.git",
+  "checked_sha": "cfc5658ef8c4ffb48347c906558edec6bb0ebc37",
+  "commit_count": 6,
+  "tests": "........................................................................ [100%]\n72 passed, 1 deselected in 8.67s\n",
+  "checker": "[PASS] evidence e0\n[PASS] evidence e1\n[PASS] evidence e2\n[PASS] evidence e3\n[PASS] evidence e4 — 2 file\n[PASS] e1 meta\n[PASS] e2 meta\n[PASS] e3 meta\n[PASS] dataset_version nhất quán — ['d10-21e4070301']\n[PASS] khớp data/splits/meta.json\n[PASS] REPORT.md đã điền — còn chuỗi '<điền'\n[PASS] git commits — 6/5\n[PASS] git forbidden files\n\n0 FAIL, 0 WARN\n",
+  "status": "PASS"
+}

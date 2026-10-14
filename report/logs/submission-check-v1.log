@@ -1,0 +1,42 @@
+[{"stream_name":"stdout","time":2.549958835,"data":"Cloning into '/kaggle/working/github-submission'...\n"}
+,{"stream_name":"stdout","time":2.550064582,"data":"\n"}
+,{"stream_name":"stdout","time":2.584668821,"data":"HEAD is now at cfc5658 docs(results): publish completed Kaggle evidence and illustrated report\n"}
+,{"stream_name":"stdout","time":2.58470045,"data":"\n"}
+,{"stream_name":"stdout","time":2.5890806360000003,"data":"cfc5658ef8c4ffb48347c906558edec6bb0ebc37\n"}
+,{"stream_name":"stdout","time":2.58910678,"data":"\n"}
+,{"stream_name":"stdout","time":2.592474354,"data":"6\n"}
+,{"stream_name":"stdout","time":2.592523107,"data":"\n"}
+,{"stream_name":"stdout","time":2.597472692,"data":"\n"}
+,{"stream_name":"stdout","time":60.741175209,"data":"dataset_version : d10-21e4070301\n"}
+,{"stream_name":"stdout","time":60.741216456,"data":"  train  1422 ảnh  boxes={'pothole': 1074, 'crack': 1750, 'manhole': 691}\n"}
+,{"stream_name":"stdout","time":60.741223611,"data":"  val     276 ảnh  boxes={'pothole': 66, 'crack': 470, 'manhole': 103}\n"}
+,{"stream_name":"stdout","time":60.741227164,"data":"  test    311 ảnh  boxes={'pothole': 121, 'crack': 299, 'manhole': 163}\n"}
+,{"stream_name":"stdout","time":60.741230582,"data":"\n"}
+,{"stream_name":"stdout","time":73.917074685,"data":"........................................................................ [100%]\n"}
+,{"stream_name":"stdout","time":73.917112065,"data":"72 passed, 1 deselected in 8.67s\n"}
+,{"stream_name":"stdout","time":73.917116422,"data":"\n"}
+,{"stream_name":"stdout","time":74.010527799,"data":"[PASS] evidence e0\n"}
+,{"stream_name":"stdout","time":74.010566466,"data":"[PASS] evidence e1\n"}
+,{"stream_name":"stdout","time":74.010572716,"data":"[PASS] evidence e2\n"}
+,{"stream_name":"stdout","time":74.010577538,"data":"[PASS] evidence e3\n"}
+,{"stream_name":"stdout","time":74.010582254,"data":"[PASS] evidence e4 — 2 file\n"}
+,{"stream_name":"stdout","time":74.010588277,"data":"[PASS] e1 meta\n"}
+,{"stream_name":"stdout","time":74.010593717,"data":"[PASS] e2 meta\n"}
+,{"stream_name":"stdout","time":74.010598399,"data":"[PASS] e3 meta\n"}
+,{"stream_name":"stdout","time":74.010603234,"data":"[PASS] dataset_version nhất quán — ['d10-21e4070301']\n"}
+,{"stream_name":"stdout","time":74.010608279,"data":"[PASS] khớp data/splits/meta.json\n"}
+,{"stream_name":"stdout","time":74.010613172,"data":"[PASS] REPORT.md đã điền — còn chuỗi '\u003cđiền'\n"}
+,{"stream_name":"stdout","time":74.01061857,"data":"[PASS] git commits — 6/5\n"}
+,{"stream_name":"stdout","time":74.010623228,"data":"[PASS] git forbidden files\n"}
+,{"stream_name":"stdout","time":74.010627819,"data":"\n"}
+,{"stream_name":"stdout","time":74.010632217,"data":"0 FAIL, 0 WARN\n"}
+,{"stream_name":"stdout","time":74.010636694,"data":"\n"}
+,{"stream_name":"stdout","time":74.046876946,"data":"\n"}
+,{"stream_name":"stdout","time":74.046905152,"data":"SUBMISSION_READY: 0 FAIL, 0 WARN\n"}
+,{"stream_name":"stderr","time":76.530202334,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":76.530237776,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":76.882686114,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":76.882716772,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":77.804602311,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":79.121161149,"data":"[NbConvertApp] Writing 293798 bytes to __results__.html\n"}
+]

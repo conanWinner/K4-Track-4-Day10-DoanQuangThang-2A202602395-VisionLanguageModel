@@ -35,4 +35,16 @@ Một nhãn crack train có h=0 chỉ bị bỏ khỏi target SFT; split/GT/scor
 Repo public. Các commit được tạo theo từng nhóm triển khai khi hoàn thiện bàn giao;
 không phải lịch sử thời gian huấn luyện. Kiểm tra GitHub checkout trên Kaggle
 được chạy riêng, không huấn luyện hoặc chấm lại test để chọn kết quả.
-Kết quả kiểm tra cuối sẽ được bổ sung khi lượt xác minh hoàn thành.
+Kaggle submission-check version 1 **COMPLETE**; kiểm tra commit
+`cfc5658ef8c4ffb48347c906558edec6bb0ebc37` (6 commit):
+**72 passed, 1 deselected; 0 FAIL, 0 WARN**. Không skip dataset test.
+Manifest nguồn, đủ 300 log bước/run, sáu hình và mười câu báo cáo đều được kiểm tra.
+Bằng chứng: [submission-check.json](report/submission-check.json),
+[log](report/logs/submission-check-v1.log).
+
+Lần cập nhật bàn giao sau kiểm tra chỉ bổ sung giải thích trong báo cáo và lưu log;
+không thay đổi nguồn đã train hoặc evidence. Notebook xác minh:
+https://www.kaggle.com/code/thngonquang/track4-day10-submission-check
+
+Bài đủ các yêu cầu bắt buộc để nộp qua URL repo public. Chưa thực hiện thao tác
+nộp trên cổng học tập; không coi việc push GitHub là biên nhận nộp bài.
