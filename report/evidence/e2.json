@@ -1,0 +1,68 @@
+{
+  "n_images": 311,
+  "parse_valid_rate": 1.0,
+  "missing_predictions": 0,
+  "micro": {
+    "precision": 0.3912133891213389,
+    "recall": 0.32075471698113206,
+    "f1": 0.352497643732328,
+    "tp": 187,
+    "fp": 291,
+    "fn": 396
+  },
+  "per_class": {
+    "pothole": {
+      "precision": 0.21052631578947367,
+      "recall": 0.1322314049586777,
+      "f1": 0.16243654822335027,
+      "tp": 16,
+      "fp": 60,
+      "fn": 105
+    },
+    "crack": {
+      "precision": 0.2996389891696751,
+      "recall": 0.27759197324414714,
+      "f1": 0.2881944444444445,
+      "tp": 83,
+      "fp": 194,
+      "fn": 216
+    },
+    "manhole": {
+      "precision": 0.704,
+      "recall": 0.5398773006134969,
+      "f1": 0.6111111111111112,
+      "tp": 88,
+      "fp": 37,
+      "fn": 75
+    },
+    "other": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "mean_iou": 0.6785041964708612,
+  "fp_per_image": 0.9356913183279743,
+  "f1_ci95": [
+    0.31208372978116083,
+    0.3931297709923664
+  ],
+  "score_version": 1,
+  "name": "E2",
+  "dataset_version": "d10-21e4070301",
+  "split": "test",
+  "coord": "norm1000",
+  "meta": {
+    "trainable_params": 142135296,
+    "peak_vram_gb": 6.761265754699707,
+    "train_minutes": 50.035430247249984,
+    "optimizer_steps": 300,
+    "train_images": 1422,
+    "setup": "E2",
+    "batch_size": 1,
+    "grad_accum": 8
+  }
+}

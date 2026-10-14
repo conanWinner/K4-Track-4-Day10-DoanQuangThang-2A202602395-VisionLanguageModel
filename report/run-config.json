@@ -1,0 +1,9 @@
+{
+  "mode": "full",
+  "max_new_tokens": 512,
+  "optimizer_steps": 300,
+  "batch_size": 1,
+  "grad_accum": 8,
+  "seed": 42,
+  "note": "batch 1/accum 8 retains effective batch 8; completion cap 512 shared by all setups"
+}

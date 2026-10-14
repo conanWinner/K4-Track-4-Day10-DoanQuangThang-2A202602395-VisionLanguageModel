@@ -1,0 +1,14 @@
+{
+  "pothole": {
+    "n_boxes": 121,
+    "median_area_percent": 0.41927008680000005
+  },
+  "crack": {
+    "n_boxes": 299,
+    "median_area_percent": 1.9813205034999999
+  },
+  "manhole": {
+    "n_boxes": 163,
+    "median_area_percent": 0.6688347743
+  }
+}

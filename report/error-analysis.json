@@ -1,0 +1,28 @@
+{
+  "e0": {
+    "images_with_fp": 222,
+    "images_with_fn": 291,
+    "perfect_images": 15,
+    "unknown_label_images": 0,
+    "invalid_json": 43
+  },
+  "e1": {
+    "images_with_fp": 202,
+    "images_with_fn": 229,
+    "perfect_images": 74,
+    "unknown_label_images": 0,
+    "invalid_json": 1
+  },
+  "e2": {
+    "images_with_fp": 185,
+    "images_with_fn": 212,
+    "perfect_images": 85,
+    "unknown_label_images": 0
+  },
+  "e3": {
+    "images_with_fp": 151,
+    "images_with_fn": 182,
+    "perfect_images": 117,
+    "unknown_label_images": 0
+  }
+}

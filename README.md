@@ -1,5 +1,24 @@
 # Lab Day 10: Finetune Qwen3-VL-4B (LoRA) để định vị hư hại mặt đường
 
+## Bài làm đã hoàn thành trên Kaggle
+
+Đoàn Quang Thắng · 2A202602395. Mã soạn tại local; test, chuẩn bị dữ liệu,
+huấn luyện, suy luận và chấm điểm đều chạy trên Kaggle Tesla T4.
+
+- [Báo cáo 10 câu, bảng E0–E4 và sáu hình GT/dự đoán](REPORT.md).
+- [Evidence do scorer gốc sinh](report/evidence), [nhật ký train](report/training),
+  [môi trường thực tế](report/environment.json), [log Kaggle](report/logs/kaggle-v7.log).
+- [Notebook Kaggle](https://www.kaggle.com/code/thngonquang/track4-day10-qwen3-vl-road-damage),
+  version 7, `COMPLETE`; notebook giữ private, repo này public để nộp bài.
+- F1 E0/E1/E2/E3: **0.0678 / 0.2989 / 0.3525 / 0.4596**.
+  E4 dùng E3: 10% dữ liệu **0.2715**, 100% **0.4596**.
+- [Cách chạy và khác biệt với đề](student/README.md), [trạng thái kiểm tra](KAGGLE_STATUS.md).
+  E5 là tùy chọn, chưa chạy.
+
+Notebook tại root là nguồn đúng của version 7, có payload và manifest đã chạy.
+Không cần chạy lại train để đọc kết quả. Không chạy mã lab trên local.
+Nội dung đề gốc được giữ bên dưới; `scripts/` và `tests/` không sửa.
+
 > Track 4 · Ngày 10 · *Nhãn, auto-labeling và Vision–Language Model* · **bài cá nhân** · ≈ 4 giờ trên **Google Colab T4 (miễn phí)**
 > Bạn **tự viết** phần huấn luyện và suy luận theo pseudo code trong [`GUIDE.md`](GUIDE.md). Công cụ chia dữ liệu và chấm điểm do giảng viên viết sẵn và **không được sửa**.
 
